@@ -19,25 +19,20 @@ const ageCalculator = () => {
     totalWeeks,
     totalDays;
 
-  let todayDate = new Date(); // Current date
-  let inputDate = new Date(input); // Input date
+  let todayDate = new Date(); 
+  let inputDate = new Date(input); 
 
-  // For input date, months, and years
   let birthDetails = {
     date: inputDate.getDate(),
     month: inputDate.getMonth() + 1,
     year: inputDate.getFullYear(),
   };
 
-  // For current date, months, and years
   let currentDate = todayDate.getDate();
   let currentMonth = todayDate.getMonth() + 1;
   let currentYear = todayDate.getFullYear();
-
-  //   For Leap year
   leapYearChecker(currentYear);
 
-  // Check if input date is not valid to calculate means greater than current date
   if (
     birthDetails.year > currentYear ||
     (birthDetails.month > currentMonth && birthDetails.year == currentYear) ||
@@ -49,10 +44,7 @@ const ageCalculator = () => {
     return;
   }
 
-  // For year calculation
   yearOfBirth = currentYear - birthDetails.year;
-
-  // For months calculation
   if (currentMonth >= birthDetails.month) {
     monthOfBirth = currentMonth - birthDetails.month;
   } else {
@@ -60,21 +52,19 @@ const ageCalculator = () => {
     monthOfBirth = 12 + currentMonth - birthDetails.month;
   }
 
-  // For days calculation
+
   if (currentDate >= birthDetails.date) {
     dateOfBirth = currentDate - birthDetails.date;
   } else {
     monthOfBirth--;
     let days = daysInMonth(birthDetails.month, birthDetails.year);
     dateOfBirth = days + currentDate - birthDetails.date;
-    // When month value gets negative
     if (monthOfBirth < 0) {
       monthOfBirth = 11;
       yearOfBirth--;
     }
   }
 
-  // For total days and weeks
   let value = todayDate - inputDate;
   let totalHours = todayDate.getHours();
 
@@ -86,12 +76,10 @@ const ageCalculator = () => {
     Math.floor(value / (1000 * 60 * 60 * 24)) % 7
   } d`;
 
-  // For total months
   totalMonths = `${yearOfBirth * 12 + monthOfBirth} m - ${
     Math.floor(dateOfBirth / 7) % 7
   } w`;
 
-  // Display output
   displayCalculatedResult(
     yearOfBirth,
     monthOfBirth,
@@ -118,7 +106,6 @@ const displayCalculatedResult = (
   document.getElementById("total-days").innerHTML = tDays;
 };
 
-// To check leap year
 const leapYearChecker = (year) => {
   if (year % 4 == 0 || (year % 100 == 0 && year % 400 == 0)) {
     months[1] = 29;
@@ -127,7 +114,6 @@ const leapYearChecker = (year) => {
   }
 };
 
-// To check how many days in that month
 const daysInMonth = (month, year) => {
   return new Date(year, month, 0).getDate();
 };
