@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="title">
+        <h1>Age Calculator</h1>
+        <h2>Fill the input field and check your calculated age</h2>
+    </div>
+
+    <div id="container">
+        <div id="ageInput">
+            <input type="date" id="date-input">
+            <button onclick="ageCalculator()">Calculate</button>
+        </div>
+
+        <div id="calculated-age">
+            <div>
+                <span id="years">-</span>
+                <p>Years</p>
+            </div>
+
+            <div>
+                <span id="months">-</span>
+                <p>Month</p>
+            </div>
+
+            <div>
+                <span id="days">-</span>
+                <p>Days</p>
+            </div>
+
+            <div class="total-days-weeks-months">
+                <span id="total-months">-</span>
+                <p>Total Months</p>
+            </div>
+
+            <div class="total-days-weeks-months">
+                <span id="total-weeks">-</span>
+                <p>Total Weeks</p>
+            </div>
+
+            <div class="total-days-weeks-months">
+                <span id="total-days">-</span>
+                <p>Total Days</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="script.js"></script>
